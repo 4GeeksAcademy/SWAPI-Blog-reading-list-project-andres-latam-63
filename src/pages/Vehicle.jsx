@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { Link, useParams } from "react-router-dom";
 
-export const People = () => {
+export const Vehicle = () => {
   const { store } = useGlobalReducer();
-  const { peopleId } = useParams();
-  const singlePerson = store.characters.find(
-    (character) => character.uid === parseInt(peopleId)
+  const { vehicleId } = useParams();
+  const singleVehicle = store.vehicles.find(
+    (character) => character.uid === parseInt(vehicleId)
   );
 
-  const [characterInfo, setCharacterInfo] = useState([]);
-  const characterId = parseInt(peopleId);
+  const [vehicleInfo, setVehicleInfo] = useState([]);
+  const singlevehicleId = parseInt(vehicleId);
 
   const GetInfo = async () => {
     try {
       const result = await fetch(
-        `https://swapi.tech/api/people/${characterId}`
+        `https://swapi.tech/api/vehicles/${singlevehicleId}`
       );
       if (!result.ok) {
         console.error(
@@ -24,7 +24,7 @@ export const People = () => {
       }
       const data = await result.json();
       const info = data.result.properties;
-      setCharacterInfo(info);
+      setVehicleInfo(info);
     } catch (error) {
       console.error(error);
     }
@@ -32,20 +32,20 @@ export const People = () => {
 
   useEffect(() => {
     GetInfo();
-  }, [characterInfo]);
+  }, []);
 
   return (
     <>
       <div className="container">
         <div className="card" style={{ width: "18rem" }}>
           <img
-            src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/people/${characterId}.jpg`}
+            src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/vehicles/${singlevehicleId}.jpg`}
             className="card-img-top"
-            alt={`Picture of ${characterInfo.name}`}
+            alt={`Picture of ${vehicleInfo.name}`}
           />
           <div className="card-body">
-            <h5 className="card-title">{characterInfo.name}</h5>
-            <p className="card-text">Height: {characterInfo.height}cm</p>
+            <h5 className="card-title">{vehicleInfo.name}</h5>
+            <p className="card-text">Crew: {vehicleInfo.crew}</p>
           </div>
         </div>
       </div>

@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { Link, useParams } from "react-router-dom";
 
-export const People = () => {
+export const Planet = () => {
   const { store } = useGlobalReducer();
-  const { peopleId } = useParams();
-  const singlePerson = store.characters.find(
-    (character) => character.uid === parseInt(peopleId)
+  const { planetId } = useParams();
+  const singlePlanet = store.planets.find(
+    (planet) => planet.uid === parseInt(planetId)
   );
 
-  const [characterInfo, setCharacterInfo] = useState([]);
-  const characterId = parseInt(peopleId);
+  const [planetInfo, setPlanetInfo] = useState([]);
+  const singleplanetId = parseInt(planetId);
 
   const GetInfo = async () => {
     try {
       const result = await fetch(
-        `https://swapi.tech/api/people/${characterId}`
+        `https://swapi.tech/api/planets/${singleplanetId}`
       );
       if (!result.ok) {
         console.error(
@@ -24,7 +24,7 @@ export const People = () => {
       }
       const data = await result.json();
       const info = data.result.properties;
-      setCharacterInfo(info);
+      setPlanetInfo(info);
     } catch (error) {
       console.error(error);
     }
@@ -32,20 +32,20 @@ export const People = () => {
 
   useEffect(() => {
     GetInfo();
-  }, [characterInfo]);
+  }, []);
 
   return (
     <>
       <div className="container">
         <div className="card" style={{ width: "18rem" }}>
           <img
-            src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/people/${characterId}.jpg`}
+            src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/planets/${singleplanetId}.jpg`}
             className="card-img-top"
-            alt={`Picture of ${characterInfo.name}`}
+            alt={`Picture of ${planetInfo.name}`}
           />
           <div className="card-body">
-            <h5 className="card-title">{characterInfo.name}</h5>
-            <p className="card-text">Height: {characterInfo.height}cm</p>
+            <h5 className="card-title">{planetInfo.name}</h5>
+            <p className="card-text">Terrain: {planetInfo.terrain}</p>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ export const initialStore = () => {
     vehicles: [],
     planets: [],
     singleCard: [],
+    favorites: [],
   };
 };
 
@@ -31,6 +32,19 @@ export default function storeReducer(store, action = {}) {
         ...store,
         singleCard: action.payload,
       };
+
+    case "add_favorite":
+      const itemExists = store.favorites.some(
+        (item) => item.name === action.payload.name
+      );
+      if (itemExists) {
+        return store;
+      } else {
+        return {
+          ...store,
+          favorites: [...store.favorites, action.payload],
+        };
+      }
     default:
       throw Error("Unknown action.");
   }

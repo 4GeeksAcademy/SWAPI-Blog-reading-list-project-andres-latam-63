@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import storeReducer from "../store";
+import useGlobalReducer from "../hooks/useGlobalReducer";
+import { Favorites } from "./Favorites";
 
 export const Navbar = () => {
+  const { store, dispatch } = useGlobalReducer();
   return (
     <nav className="navbar navbar-expand-lg bg-body-secondary">
       <div className="container">
@@ -23,45 +27,21 @@ export const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                Link
-              </Link>
-            </li>
             <li className="nav-item dropdown">
-              <span
-                className="nav-link dropdown-toggle"
-                href="#"
+              <button
+                type="button"
+                className="nav-link dropdown-toggle "
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
-              </span>
-              <ul className="dropdown-menu">
-                <li>
-                  <span className="dropdown-item" href="#">
-                    Action
-                  </span>
-                </li>
-                <li>
-                  <span className="dropdown-item" href="#">
-                    Another action
-                  </span>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <span className="dropdown-item" href="#">
-                    Something else here
-                  </span>
-                </li>
+                Favorites
+              </button>
+              <ul className="dropdown-menu dropdown-menu-end">
+                <li className="dropdown-item"><i class="fa-solid fa-book-journal-whills"></i> Favorites:</li>
+                {store.favorites.map((item) => {
+                  return <Favorites item={item} />;
+                })}
               </ul>
             </li>
           </ul>
