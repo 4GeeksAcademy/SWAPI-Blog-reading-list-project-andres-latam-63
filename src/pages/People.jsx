@@ -30,23 +30,74 @@ export const People = () => {
     }
   };
 
-  useEffect(() => {
-    GetInfo();
-  }, [characterInfo]);
+  // useEffect(() => {
+  //   GetInfo();
+  // }, [characterInfo]);
 
   return (
     <>
-      <div className="container">
-        <div className="card" style={{ width: "18rem" }}>
-          <img
-            src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/people/${characterId}.jpg`}
-            className="card-img-top"
-            alt={`Picture of ${characterInfo.name}`}
-          />
-          <div className="card-body">
-            <h5 className="card-title">{characterInfo.name}</h5>
-            <p className="card-text">Height: {characterInfo.height}cm</p>
+      <div className="container main-container d-flex flex-column justify-content-center mt-4">
+        <div
+          className="card mb-3 ms-auto me-auto"
+          style={{ maxWidth: "800px" }}
+        >
+          <div className="row g-0">
+            <div className="col-md-4">
+              <img
+                src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/people/${characterId}.jpg`}
+                className="img-fluid rounded-start"
+                alt={characterInfo.name}
+              />
+            </div>
+            <div className="col-md-8 d-flex">
+              <div className="card-body bg-dark text-white rounded-end">
+                <h4 className="card-title text-center">{characterInfo.name}</h4>
+                <p className="card-text mt-5 pt-1">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Fuga, assumenda dolore laboriosam eveniet minima architecto
+                  error alias, corporis iure laudantium obcaecati sequi quo
+                  exercitationem perferendis beatae illum ex quaerat
+                  perspiciatis, doloribus quidem et nemo ab eius dignissimos?
+                  Quam placeat iusto deleniti, voluptatum, porro consequatur,
+                  quasi dolorum inventore id iure unde?
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className="ms-auto me-auto d-flex flex-column">
+          <ul className="list-group list-group-horizontal text-white">
+            <li className="list-group-item single-cards-info">
+              <div className="list-property">Gender:</div>
+              <div className="list-info">{characterInfo.gender}</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property">Skin color:</div>
+              <div className="list-info">{characterInfo.skin_color}</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property">Hair color:</div>
+              <div className="list-info">{characterInfo.hair_color}</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property">Eye color:</div>
+              <div className="list-info">{characterInfo.eye_color}</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property">Height:</div>
+              <div className="list-info">{characterInfo.height} cm.</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property">Weight:</div>
+              <div className="list-info">{characterInfo.mass} kgs.</div>
+            </li>
+          </ul>
         </div>
       </div>
     </>

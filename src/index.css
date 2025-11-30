@@ -1,0 +1,37 @@
+.display-cards-list, .single-cards-info {
+  border: none;
+}
+body,
+.navbar,
+.main-container,
+.card-list,
+.extra,
+.single-cards-info,
+.display-cards-list {
+  background: black;
+}
+
+.main-container {
+  background-image: url("https://images.wallpaperscraft.com/image/single/starry_sky_stars_black_174007_2560x1440.jpg");
+}
+#root {
+  background-color: black;
+  background-image: url("https://images.wallpaperscraft.com/image/single/starry_sky_stars_black_174007_2560x1440.jpg");
+  background-size: 100vh;
+}
+
+.extra {
+  color: black;
+}
+
+.delete-icon {
+  color: red;
+  cursor: pointer;
+}
+
+.list-property {
+  color: white;
+}
+.list-info {
+  color: rgb(136, 76, 76);
+}

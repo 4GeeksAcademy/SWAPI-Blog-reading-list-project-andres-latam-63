@@ -4,7 +4,6 @@ import { object } from "prop-types";
 import { Link } from "react-router-dom";
 import { DisplayCard } from "../components/DisplayCard";
 
-
 export const FrontPage = () => {
   const { store, dispatch } = useGlobalReducer();
 
@@ -67,31 +66,40 @@ export const FrontPage = () => {
 
   useEffect(() => {
      FetchCharacters();
-    // FetchVehicles();
-    // FetchPlanets();
+      FetchVehicles();
+     FetchPlanets();
   }, []);
 
   return (
     <>
-      <div className="container">
-        <h1>Characters:</h1>
-        <ul className="list-group list-group-horizontal overflow-x-scroll">
+      <div className="container main-container">
+        <div className="pt-4 pb-4">
+          <img src="https://see.fontimg.com/api/rf5/A4lL/OGYzMWMyNDE3ZDYwNGRhNGI3ZDFmOTAxYzgyMjMzMWUudHRm/Y2hhcmFjdGVyczo/star-jedi-hollow.png?r=fs&h=63&w=1000&fg=FFFFFF&bg=050505&tb=1&s=63" />
+        </div>
+        <ul className="list-group list-group-horizontal overflow-x-scroll card-list">
           {store.characters.map((character) => {
             return <DisplayCard item={character} />;
           })}
         </ul>
-        <h1>Vehicles:</h1>
+        <div className="pt-4 pb-4">
+          <img src="https://see.fontimg.com/api/rf5/A4lL/OGYzMWMyNDE3ZDYwNGRhNGI3ZDFmOTAxYzgyMjMzMWUudHRm/dmVoaWNsZXM6/star-jedi-hollow.png?r=fs&h=63&w=1000&fg=FFFFFF&bg=050505&tb=1&s=63" />
+        </div>
         <ul className="list-group list-group-horizontal overflow-x-scroll">
-          {store.vehicles.map((item) => {
-            return <DisplayCard item={item} />;
+          {store.vehicles.map((vehicle) => {
+            return <DisplayCard item={vehicle} />;
           })}
         </ul>
-        <h1>Planets:</h1>
+        <div className="pt-4 pb-4">
+          <img src="https://see.fontimg.com/api/rf5/A4lL/OGYzMWMyNDE3ZDYwNGRhNGI3ZDFmOTAxYzgyMjMzMWUudHRm/cGxhbmV0czo/star-jedi-hollow.png?r=fs&h=63&w=1000&fg=FFFFFF&bg=050505&tb=1&s=63" />
+        </div>
         <ul className="list-group list-group-horizontal overflow-x-scroll">
-          {store.planets.map((item) => {
-            return <DisplayCard item={item} />;
+          {store.planets.map((planet) => {
+            return <DisplayCard item={planet} />;
           })}
         </ul>
+        <div className="extra mb-0">
+          <p className="mb-0">H</p>
+        </div>
       </div>
     </>
   );
