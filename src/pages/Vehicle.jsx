@@ -36,17 +36,67 @@ export const Vehicle = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="card" style={{ width: "18rem" }}>
-          <img
-            src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/vehicles/${singlevehicleId}.jpg`}
-            className="card-img-top"
-            alt={`Picture of ${vehicleInfo.name}`}
-          />
-          <div className="card-body">
-            <h5 className="card-title">{vehicleInfo.name}</h5>
-            <p className="card-text">Crew: {vehicleInfo.crew}</p>
+      <div className="container main-container d-flex flex-column justify-content-center mt-5">
+        <div
+          className="card mb-3 ms-auto me-auto"
+          style={{ maxWidth: "800px" }}
+        >
+          <div className="row g-0">
+            <div className="col-md-6">
+              <img
+                src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/master/public/images/vehicles/${singlevehicleId}.jpg`}
+                className="img-fluid rounded-start object-fit-fill h-100"
+                alt={vehicleInfo.name}
+              />
+            </div>
+            <div className="col-md-6 d-flex">
+              <div className="card-body bg-dark text-white rounded-end">
+                <h4 className="card-title text-center">{vehicleInfo.name}</h4>
+                <p className="card-text mt-5 pt-1">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident, maiores obcaecati non animi voluptatem nulla et
+                  voluptatibus facilis quisquam. Sunt quae repellat tenetur quod
+                  nihil.
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className="ms-auto me-auto d-flex flex-column">
+          <ul className="list-group list-group-horizontal text-white">
+            <li className="list-group-item single-cards-info">
+              <div className="list-property text-center">Cargo capacity:</div>
+              <div className="list-info text-center">{vehicleInfo.cargo_capacity} kgs.</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property text-center">Passengers:</div>
+              <div className="list-info text-center">{vehicleInfo.passengers}</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property text-center">Crew:</div>
+              <div className="list-info text-center">{vehicleInfo.crew}</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property text-center">Length:</div>
+              <div className="list-info text-center">{vehicleInfo.length} mts.</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property text-center">Model:</div>
+              <div className="list-info text-center">{vehicleInfo.model}</div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property text-center">Cost:</div>
+              <div className="list-info text-center">
+                {vehicleInfo.cost_in_credits} credits
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </>

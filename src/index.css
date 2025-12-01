@@ -35,3 +35,11 @@ body,
 .list-info {
   color: rgb(136, 76, 76);
 }
+
+*{
+    font-family: "Science Gothic";
+}
+
+h4{
+  min-height: 1.2em;
+}

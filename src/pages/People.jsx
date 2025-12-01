@@ -30,13 +30,13 @@ export const People = () => {
     }
   };
 
-  // useEffect(() => {
-  //   GetInfo();
-  // }, [characterInfo]);
+  useEffect(() => {
+    GetInfo();
+  }, [characterInfo]);
 
   return (
     <>
-      <div className="container main-container d-flex flex-column justify-content-center mt-4">
+      <div className="container main-container d-flex flex-column justify-content-center mt-5">
         <div
           className="card mb-3 ms-auto me-auto"
           style={{ maxWidth: "800px" }}
@@ -69,33 +69,33 @@ export const People = () => {
         <div className="ms-auto me-auto d-flex flex-column">
           <ul className="list-group list-group-horizontal text-white">
             <li className="list-group-item single-cards-info">
-              <div className="list-property">Gender:</div>
-              <div className="list-info">{characterInfo.gender}</div>
+              <div className="list-property text-center">Gender:</div>
+              <div className="list-info text-center">{characterInfo.gender}</div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
-              <div className="list-property">Skin color:</div>
-              <div className="list-info">{characterInfo.skin_color}</div>
+              <div className="list-property text-center">Skin color:</div>
+              <div className="list-info text-center">{characterInfo.skin_color}</div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
-              <div className="list-property">Hair color:</div>
-              <div className="list-info">{characterInfo.hair_color}</div>
+              <div className="list-property text-center">Hair color:</div>
+              <div className="list-info text-center">{characterInfo.hair_color}</div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
-              <div className="list-property">Eye color:</div>
-              <div className="list-info">{characterInfo.eye_color}</div>
+              <div className="list-property text-center">Eye color:</div>
+              <div className="list-info text-center">{characterInfo.eye_color}</div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
-              <div className="list-property">Height:</div>
-              <div className="list-info">{characterInfo.height} cm.</div>
+              <div className="list-property text-center">Height:</div>
+              <div className="list-info text-center">{characterInfo.height} cm.</div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
-              <div className="list-property">Weight:</div>
-              <div className="list-info">{characterInfo.mass} kgs.</div>
+              <div className="list-property text-center">Weight:</div>
+              <div className="list-info text-center">{characterInfo.mass} kgs.</div>
             </li>
           </ul>
         </div>
