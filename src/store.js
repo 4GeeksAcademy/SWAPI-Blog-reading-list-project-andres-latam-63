@@ -46,11 +46,15 @@ export default function storeReducer(store, action = {}) {
         };
       }
 
-      case 'remove_favorite':
-        return{
-          ...store,
-          favorites:[...store.favorites.filter(favorite=> favorite.name !== action.payload)]
-        }
+    case "remove_favorite":
+      return {
+        ...store,
+        favorites: [
+          ...store.favorites.filter(
+            (favorite) => favorite.name !== action.payload
+          ),
+        ],
+      };
     default:
       throw Error("Unknown action.");
   }

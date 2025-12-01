@@ -1,21 +1,39 @@
 import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { useEffect, useState } from "react";
 
 export const DisplayCard = ({ item }) => {
   const { store, dispatch } = useGlobalReducer();
 
-  const HandleClick = (item) => {
+  const [color, setColor] = useState("black");
+
+  const FavoriteList = store.favorites;
+
+  const HandleClick = (favorite) => {
     dispatch({
       type: "add_favorite",
-      payload: item,
+      payload: favorite,
     });
   };
+
+  const LikeColor = (item) => {
+    const isFavorite = FavoriteList.some((favorite) => favorite.name === item);
+    if (isFavorite) {
+      setColor("red");
+    } else {
+      setColor("black");
+    }
+  };
+
+  useEffect(() => {
+    LikeColor(item.name);
+  }, [FavoriteList]);
 
   const url = item.url;
   const urlInfo = url.replace("https://www.swapi.tech/api/", "");
   return (
     <>
-      <li className="list-group-item mb-3 display-cards-list" key={item.uid}>
+      <li className="list-group-item mb-3 display-cards-list" key={item.name}>
         <div className="container h-100">
           <div className="card h-100" style={{ width: "18rem" }}>
             <img
@@ -36,12 +54,13 @@ export const DisplayCard = ({ item }) => {
                 </Link>
                 <button
                   type="button"
-                  className="btn btn-danger ms-5"
+                  className="btn btn-light ms-5"
                   onClick={() => {
                     HandleClick(item);
+                    LikeColor(item.name);
                   }}
                 >
-                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart" style={{ color: color }}></i>
                 </button>
               </div>
             </div>

@@ -70,32 +70,51 @@ export const People = () => {
           <ul className="list-group list-group-horizontal text-white">
             <li className="list-group-item single-cards-info">
               <div className="list-property text-center">Gender:</div>
-              <div className="list-info text-center">{characterInfo.gender}</div>
+              <div className="list-info text-center">
+                {characterInfo.gender}
+              </div>
+            </li>
+            <div className="vr"></div>
+            <li className="list-group-item single-cards-info">
+              <div className="list-property text-center">Birth year:</div>
+              <div className="list-info text-center">
+                {characterInfo.birth_year}
+              </div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
               <div className="list-property text-center">Skin color:</div>
-              <div className="list-info text-center">{characterInfo.skin_color}</div>
+              <div className="list-info text-center">
+                {characterInfo.skin_color}
+              </div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
               <div className="list-property text-center">Hair color:</div>
-              <div className="list-info text-center">{characterInfo.hair_color}</div>
+              <div className="list-info text-center">
+                {characterInfo.hair_color}
+              </div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
               <div className="list-property text-center">Eye color:</div>
-              <div className="list-info text-center">{characterInfo.eye_color}</div>
+              <div className="list-info text-center">
+                {characterInfo.eye_color}
+              </div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
               <div className="list-property text-center">Height:</div>
-              <div className="list-info text-center">{characterInfo.height} cm.</div>
+              <div className="list-info text-center">
+                {characterInfo.height} cm.
+              </div>
             </li>
             <div className="vr"></div>
             <li className="list-group-item single-cards-info">
               <div className="list-property text-center">Weight:</div>
-              <div className="list-info text-center">{characterInfo.mass} kgs.</div>
+              <div className="list-info text-center">
+                {characterInfo.mass} kgs.
+              </div>
             </li>
           </ul>
         </div>
