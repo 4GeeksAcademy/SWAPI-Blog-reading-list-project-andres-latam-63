@@ -36,7 +36,7 @@ export const Planet = () => {
 
   return (
     <>
-      <div className="container main-container d-flex flex-column justify-content-center mt-5">
+      <div className="container  d-flex flex-column justify-content-center mt-5">
         <div
           className="card mb-3 ms-auto me-auto"
           style={{ maxWidth: "800px" }}

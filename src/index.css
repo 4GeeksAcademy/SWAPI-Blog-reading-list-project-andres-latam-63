@@ -18,6 +18,7 @@ body,
   background-color: black;
   background-image: url("https://images.wallpaperscraft.com/image/single/starry_sky_stars_black_174007_2560x1440.jpg");
   background-size: 100vh;
+  height: 100%;
 }
 
 .extra {
