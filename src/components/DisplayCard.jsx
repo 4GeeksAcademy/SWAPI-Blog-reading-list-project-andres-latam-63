@@ -9,11 +9,21 @@ export const DisplayCard = ({ item }) => {
 
   const FavoriteList = store.favorites;
 
-  const HandleClick = (favorite) => {
-    dispatch({
-      type: "add_favorite",
-      payload: favorite,
-    });
+  const HandleClick = (item) => {
+    const isFavorite = FavoriteList.some(
+      (favorite) => favorite.name === item.name
+    );
+    if (!isFavorite) {
+      dispatch({
+        type: "add_favorite",
+        payload: item,
+      });
+    } else {
+      dispatch({
+        type: "remove_favorite",
+        payload: item.name,
+      });
+    }
   };
 
   const LikeColor = (item) => {

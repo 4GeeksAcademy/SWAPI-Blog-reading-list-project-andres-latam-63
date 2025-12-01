@@ -2,9 +2,15 @@ import { Link } from "react-router-dom";
 import storeReducer from "../store";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { Favorites } from "./Favorites";
+import { useState } from "react";
 
 export const Navbar = () => {
   const { store, dispatch } = useGlobalReducer();
+
+  const Redirect = (item) => {
+    return item.replace("https://www.swapi.tech/api/", "");
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-dark border-bottom ps-5 pe-5">
       <div className="container-fluid d-flex">
@@ -24,7 +30,8 @@ export const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
               data-bs-auto-close="outside"
-            ><i class="fa-solid fa-jedi"></i>
+            >
+              <i class="fa-solid fa-jedi"></i>
               FAVORITES
             </button>
             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-dark">
